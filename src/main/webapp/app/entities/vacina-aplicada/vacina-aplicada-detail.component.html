@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vacinaAplicada">
+            <h2><span>Vacina Aplicada</span> {{vacinaAplicada.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Data Aplicacao</span></dt>
+                <dd>
+                    <span>{{vacinaAplicada.dataAplicacao}}</span>
+                </dd>
+                <dt><span>Doses</span></dt>
+                <dd>
+                    <span>{{vacinaAplicada.doses}}</span>
+                </dd>
+                <dt><span>Observacao</span></dt>
+                <dd>
+                    <span>{{vacinaAplicada.observacao}}</span>
+                </dd>
+                <dt><span>Vacina</span></dt>
+                <dd>
+                    <div *ngIf="vacinaAplicada.vacina">
+                        <a [routerLink]="['/vacina', vacinaAplicada.vacina?.id, 'view']">{{vacinaAplicada.vacina?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span>Vacina</span></dt>
+                <dd>
+                    <div *ngIf="vacinaAplicada.vacina">
+                        <a [routerLink]="['/animal', vacinaAplicada.vacina?.id, 'view']">{{vacinaAplicada.vacina?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span>Vacina</span></dt>
+                <dd>
+                    <div *ngIf="vacinaAplicada.vacina">
+                        <a [routerLink]="['/veterinario', vacinaAplicada.vacina?.id, 'view']">{{vacinaAplicada.vacina?.nome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vacina-aplicada', vacinaAplicada.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{
+    "name": "DonoAnimal",
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "login",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "senha",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "animal",
+            "otherEntityName": "animal",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "donoAnimal"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "endereco",
+            "otherEntityName": "endereco",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "donoAnimal"
+        }
+    ],
+    "changelogDate": "20181122002324",
+    "entityTableName": "dono_animal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

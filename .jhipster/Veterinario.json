@@ -1,0 +1,66 @@
+{
+    "name": "Veterinario",
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "login",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "senha",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroRegistroCfmv",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroRegistroCrmv",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "endereco",
+            "otherEntityName": "endereco",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "veterinario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vacinasAplicada",
+            "otherEntityName": "vacinaAplicada",
+            "otherEntityRelationshipName": "vacina"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cirurgias",
+            "otherEntityName": "cirurgia",
+            "otherEntityRelationshipName": "animal"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consultas",
+            "otherEntityName": "consulta",
+            "otherEntityRelationshipName": "animal"
+        }
+    ],
+    "changelogDate": "20181122002323",
+    "entityTableName": "veterinario",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

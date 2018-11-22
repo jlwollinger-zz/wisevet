@@ -1,0 +1,44 @@
+{
+    "name": "Consulta",
+    "fields": [
+        {
+            "fieldName": "dataHora",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observacoes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "realizada",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "animal",
+            "otherEntityName": "animal",
+            "otherEntityField": "descricao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "animal",
+            "otherEntityName": "veterinario",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20181122002320",
+    "entityTableName": "consulta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

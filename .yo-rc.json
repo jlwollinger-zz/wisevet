@@ -1,0 +1,34 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "wisevet",
+    "packageName": "br.com",
+    "packageFolder": "br/com",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MTJhMDQ1ZDU1NTNlOTFiY2UxMTYzYjg0YzBkZGY2NDk5YmIwMjQ2MDhlMDA4ZGVhYjhhOWVlOGMxMzU4OTU4ZjFlMDk0MDdhOWYzMGQ5MjRmOTYxZTQ4MGZhMzNkMjRhZWNkMzNkYzNmMDdlNTNlODEzZTg4OTVjN2I2M2JlNTk=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}

@@ -1,0 +1,63 @@
+{
+    "name": "Animal",
+    "fields": [
+        {
+            "fieldName": "corPele",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataNascimento",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observacoes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tamanho",
+            "fieldType": "Tamanho",
+            "fieldValues": "PEQUENO,MEDIO,GRANDE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "especie",
+            "otherEntityName": "especie",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "animal"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vacinasAplicada",
+            "otherEntityName": "vacinaAplicada",
+            "otherEntityRelationshipName": "vacina"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cirurgias",
+            "otherEntityName": "cirurgia",
+            "otherEntityRelationshipName": "animal"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consultas",
+            "otherEntityName": "consulta",
+            "otherEntityRelationshipName": "animal"
+        }
+    ],
+    "changelogDate": "20181122002318",
+    "entityTableName": "animal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,24 @@
+{
+    "name": "SolicitacaoVinculo",
+    "fields": [
+        {
+            "fieldName": "dataEnvio",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "STATUSSOLICITACAOVINCULO",
+            "fieldValues": "ENVIADO,ACEITO,NEGADO"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181122002325",
+    "entityTableName": "solicitacao_vinculo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

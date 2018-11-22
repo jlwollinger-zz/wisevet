@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Animals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-animal" [routerLink]="['/animal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Animal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="animals">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Cor Pele</span></th>
+            <th><span>Data Nascimento</span></th>
+            <th><span>Nome</span></th>
+            <th><span>Observacoes</span></th>
+            <th><span>Tamanho</span></th>
+            <th><span>Especie</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let animal of animals ;trackBy: trackId">
+                <td><a [routerLink]="['/animal', animal.id, 'view' ]">{{animal.id}}</a></td>
+                <td>{{animal.corPele}}</td>
+                <td>{{animal.dataNascimento | date:'medium'}}</td>
+                <td>{{animal.nome}}</td>
+                <td>{{animal.observacoes}}</td>
+                <td>{{animal.tamanho}}</td>
+                <td>
+                    <div *ngIf="animal.especie">
+                        <a [routerLink]="['../especie', animal.especie?.id, 'view' ]" >{{animal.especie?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/animal', animal.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/animal', animal.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'animal/'+ animal.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="animal">
+            <h2><span>Animal</span> {{animal.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Cor Pele</span></dt>
+                <dd>
+                    <span>{{animal.corPele}}</span>
+                </dd>
+                <dt><span>Data Nascimento</span></dt>
+                <dd>
+                    <span>{{animal.dataNascimento}}</span>
+                </dd>
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{animal.nome}}</span>
+                </dd>
+                <dt><span>Observacoes</span></dt>
+                <dd>
+                    <span>{{animal.observacoes}}</span>
+                </dd>
+                <dt><span>Tamanho</span></dt>
+                <dd>
+                    <span>{{animal.tamanho}}</span>
+                </dd>
+                <dt><span>Especie</span></dt>
+                <dd>
+                    <div *ngIf="animal.especie">
+                        <a [routerLink]="['/especie', animal.especie?.id, 'view']">{{animal.especie?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/animal', animal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

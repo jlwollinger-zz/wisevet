@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="permissao">
+            <h2><span>Permissao</span> {{permissao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Editar</span></dt>
+                <dd>
+                    <span>{{permissao.editar}}</span>
+                </dd>
+                <dt><span>Excluir</span></dt>
+                <dd>
+                    <span>{{permissao.excluir}}</span>
+                </dd>
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{permissao.nome}}</span>
+                </dd>
+                <dt><span>Recurso</span></dt>
+                <dd>
+                    <span>{{permissao.recurso}}</span>
+                </dd>
+                <dt><span>Visualisar</span></dt>
+                <dd>
+                    <span>{{permissao.visualisar}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/permissao', permissao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

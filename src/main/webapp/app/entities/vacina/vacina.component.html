@@ -1,0 +1,60 @@
+<div>
+    <h2 id="page-heading">
+        <span>Vacinas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vacina" [routerLink]="['/vacina/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Vacina
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="vacinas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Nome</span></th>
+            <th><span>Contra Indicacoes</span></th>
+            <th><span>Descricao</span></th>
+            <th><span>Frequencia Mes Aplicacao</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vacina of vacinas ;trackBy: trackId">
+                <td><a [routerLink]="['/vacina', vacina.id, 'view' ]">{{vacina.id}}</a></td>
+                <td>{{vacina.nome}}</td>
+                <td>{{vacina.contraIndicacoes}}</td>
+                <td>{{vacina.descricao}}</td>
+                <td>{{vacina.frequenciaMesAplicacao}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/vacina', vacina.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vacina', vacina.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'vacina/'+ vacina.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

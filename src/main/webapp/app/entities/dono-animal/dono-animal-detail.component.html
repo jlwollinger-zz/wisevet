@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="donoAnimal">
+            <h2><span>Dono Animal</span> {{donoAnimal.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{donoAnimal.email}}</span>
+                </dd>
+                <dt><span>Login</span></dt>
+                <dd>
+                    <span>{{donoAnimal.login}}</span>
+                </dd>
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{donoAnimal.nome}}</span>
+                </dd>
+                <dt><span>Senha</span></dt>
+                <dd>
+                    <span>{{donoAnimal.senha}}</span>
+                </dd>
+                <dt><span>Animal</span></dt>
+                <dd>
+                    <div *ngIf="donoAnimal.animal">
+                        <a [routerLink]="['/animal', donoAnimal.animal?.id, 'view']">{{donoAnimal.animal?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Endereco</span></dt>
+                <dd>
+                    <div *ngIf="donoAnimal.endereco">
+                        <a [routerLink]="['/endereco', donoAnimal.endereco?.id, 'view']">{{donoAnimal.endereco?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dono-animal', donoAnimal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

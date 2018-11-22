@@ -1,0 +1,136 @@
+
+entity Endereco {
+	bairro String,
+	cep Integer,
+	cidade String,
+	complemento String,
+	estado String,
+	rua String
+}
+
+entity Especie {
+	nome String,
+	nomeCientifico String
+}
+entity Animal{
+	corPele String,
+	dataNascimento Instant,
+	nome String,
+	observacoes String,
+	tamanho Tamanho
+}
+
+entity Vacina {
+	nome String,
+	contraIndicacoes String,
+	descricao String,
+	frequenciaMesAplicacao Integer
+}
+
+entity Consulta {
+	dataHora Instant,
+	descricao String,
+	observacoes String,
+	realizada Boolean
+}
+
+entity Cirurgia {
+	dataHora Instant,
+	nomeProcedimento String,
+	observacoes String
+}
+
+entity VacinaAplicada {
+	dataAplicacao Instant,
+	doses Integer,
+	observacao String
+}
+
+entity Veterinario {
+	email String,
+	login String,
+	nome String,
+	senha String, 
+	numeroRegistroCfmv Integer,
+	numeroRegistroCrmv Integer,
+}
+
+entity DonoAnimal {
+	email String,
+	login String,
+	nome String,
+	senha String
+}
+
+entity SolicitacaoVinculo {
+	dataEnvio Instant,
+	status STATUSSOLICITACAOVINCULO
+}
+
+
+entity Papel {
+	descricao String,
+	nome String
+}
+
+entity Permissao {
+	editar Boolean,
+	excluir Boolean,
+	nome String,
+	recurso String,
+	visualisar Boolean
+}
+
+enum Tamanho {
+    PEQUENO, MEDIO, GRANDE
+}
+
+enum STATUSSOLICITACAOVINCULO {
+	ENVIADO, ACEITO, NEGADO
+}
+
+
+relationship OneToOne {
+	Animal{especie} to Especie
+}
+
+relationship OneToMany {
+	Vacina{vacinasAplicada} to VacinaAplicada{vacina(nome)}
+}
+
+relationship OneToMany {
+	Animal{vacinasAplicada} to VacinaAplicada{vacina(nome)}
+}
+
+relationship OneToMany {
+	Animal{cirurgias} to Cirurgia{animal(nomeProcedimento)}
+}
+
+relationship OneToMany {
+	Animal{consultas} to Consulta{animal(descricao)}
+}
+
+relationship OneToOne {
+	DonoAnimal{animal} to Animal
+}
+
+relationship OneToMany {
+	Veterinario{vacinasAplicada} to VacinaAplicada{vacina(nome)}
+}
+
+relationship OneToMany {
+	Veterinario{cirurgias} to Cirurgia{animal(nomeProcedimento)}
+}
+
+relationship OneToMany {
+	Veterinario{consultas} to Consulta{animal(descricao)}
+}
+
+relationship OneToOne {
+	Veterinario{endereco} to Endereco
+}
+
+relationship OneToOne {
+	DonoAnimal{endereco} to Endereco
+}
+

@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-dono-animal-heading">Create or edit a Dono Animal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!donoAnimal.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="donoAnimal.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="donoAnimal.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_login">Login</label>
+                    <input type="text" class="form-control" name="login" id="field_login"
+                        [(ngModel)]="donoAnimal.login" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="donoAnimal.nome" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_senha">Senha</label>
+                    <input type="text" class="form-control" name="senha" id="field_senha"
+                        [(ngModel)]="donoAnimal.senha" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_animal">Animal</label>
+                    <select class="form-control" id="field_animal" name="animal" [(ngModel)]="donoAnimal.animal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="animalOption.id === donoAnimal.animal?.id ? donoAnimal.animal : animalOption" *ngFor="let animalOption of animals; trackBy: trackAnimalById">{{animalOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_endereco">Endereco</label>
+                    <select class="form-control" id="field_endereco" name="endereco" [(ngModel)]="donoAnimal.endereco">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="enderecoOption.id === donoAnimal.endereco?.id ? donoAnimal.endereco : enderecoOption" *ngFor="let enderecoOption of enderecos; trackBy: trackEnderecoById">{{enderecoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

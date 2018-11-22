@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cirurgia">
+            <h2><span>Cirurgia</span> {{cirurgia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Data Hora</span></dt>
+                <dd>
+                    <span>{{cirurgia.dataHora}}</span>
+                </dd>
+                <dt><span>Nome Procedimento</span></dt>
+                <dd>
+                    <span>{{cirurgia.nomeProcedimento}}</span>
+                </dd>
+                <dt><span>Observacoes</span></dt>
+                <dd>
+                    <span>{{cirurgia.observacoes}}</span>
+                </dd>
+                <dt><span>Animal</span></dt>
+                <dd>
+                    <div *ngIf="cirurgia.animal">
+                        <a [routerLink]="['/animal', cirurgia.animal?.id, 'view']">{{cirurgia.animal?.nomeProcedimento}}</a>
+                    </div>
+                </dd>
+                <dt><span>Animal</span></dt>
+                <dd>
+                    <div *ngIf="cirurgia.animal">
+                        <a [routerLink]="['/veterinario', cirurgia.animal?.id, 'view']">{{cirurgia.animal?.nomeProcedimento}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cirurgia', cirurgia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
