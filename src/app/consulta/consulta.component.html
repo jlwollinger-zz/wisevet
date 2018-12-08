@@ -1,0 +1,78 @@
+<!-- -->
+<div style="margin-top: 50px">
+
+</div>
+<div style="margin-left: 40%; margin-bottom: 5%">
+    <div class="card" style="width: 18rem;">
+        <img class="rounded-circle" src="assets/images/avatar.png" style="display: inline-block; margin: 0px auto; margin-top: 5%" alt="Animal" height="50%" width="50%">
+        <div class="card-body">
+            <p class="card-text">Junior</p>
+            <p class="card-text">Cachorro - Sem raça definida</p>
+            <p class="card-text">2 anos e 3 meses</p>
+        </div>
+    </div>
+</div>
+<div style="margin-left: 15%; width: 70%">
+    <p-accordion>
+        <p-accordionTab header="Consultas">
+            <p-table [value]="consultas">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Data e horário</th>
+                        <th>Descricao</th>
+                        <th>Estabelecimento</th>
+                        <th>Veterinario</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-consulta>
+                    <tr>
+                        <td>{{consulta.dataHora | date :'dd-MM-yyyy HH:mm'}}</td>
+                        <td>{{consulta.descricao}}</td>
+                        <td>{{consulta.estabelecimento}}</td>
+                        <td>{{consulta.veterinario}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-accordionTab>
+        <p-accordionTab header="Vacinas">
+            <p-table [value]="vacinas">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Data de Aplicacao</th>
+                        <th>Doses</th>
+                        <th>Nome</th>
+                        <th>Veterinario</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-vacina>
+                    <tr>
+                        <td>{{vacina.dataAplicacao | date:'dd-MM-yyyy' }}</td>
+                        <td>{{vacina.doses}}</td>
+                        <td>{{vacina.nome}}</td>
+                        <td>{{vacina.veterinario}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-accordionTab>
+        <p-accordionTab header="Cirurgias">
+            <p-table [value]="cirurgias">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Procedimento</th>
+                        <th>Data</th>
+                        <th>Observacoes</th>
+                        <th>Veterinario</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-cirurgia>
+                    <tr>
+                        <td>{{cirurgia.nomeProcedimento}}</td>
+                        <td>{{cirurgia.dataHora | date :'dd-MM-yyyy HH:mm'}}</td>
+                        <td>{{cirurgia.observacoes}}</td>
+                        <td>{{cirurgia.veterinario}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-accordionTab>
+    </p-accordion>
+</div>
